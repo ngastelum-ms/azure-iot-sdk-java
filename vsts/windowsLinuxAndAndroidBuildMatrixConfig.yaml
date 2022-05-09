@@ -33,16 +33,16 @@ jobs:
           COMMIT_FROM: $(COMMIT_FROM)
         condition: always()
 
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'pom.xml'
-        mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.8'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        goals: 'test'
+      - task: Maven@3
+        inputs:
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'test'
         env:
           IOT_DPS_CONNECTION_STRING: $(WINDOWS-IOT-DPS-CONNECTION-STRING)
           IOT_DPS_ID_SCOPE: $(WINDOWS-IOT-DPS-ID-SCOPE)
@@ -150,16 +150,16 @@ jobs:
             127.0.0.1:2322:2322
           restartPolicy: unlessStopped
 
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'pom.xml'
-        mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.8'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        goals: 'test'
+      - task: Maven@3
+        inputs:
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.8'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'test'
         env:
           IOT_DPS_CONNECTION_STRING: $(LINUX-IOT-DPS-CONNECTION-STRING)
           IOT_DPS_ID_SCOPE: $(LINUX-IOT-DPS-ID-SCOPE)
